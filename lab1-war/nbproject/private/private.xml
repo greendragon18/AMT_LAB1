@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/bradock/Documents/heig/amt/lab1/lab1-war/src/java/ch/heigvd/amt/lab1/model/Measure.java</file>
+            <file>file:/home/bradock/Documents/heig/amt/lab1/lab1-war/web/WEB-INF/view/measures.jsp</file>
+            <file>file:/home/bradock/Documents/heig/amt/lab1/lab1-war/src/java/ch/heigvd/amt/lab1/services/DataManagerLocal.java</file>
+            <file>file:/home/bradock/Documents/heig/amt/lab1/lab1-war/src/java/ch/heigvd/amt/lab1/controllers/DataLoggerServlet.java</file>
+            <file>file:/home/bradock/Documents/heig/amt/lab1/lab1-war/src/java/ch/heigvd/amt/lab1/services/MeasuresManagerLocal.java</file>
+            <file>file:/home/bradock/Documents/heig/amt/lab1/lab1-war/src/java/ch/heigvd/amt/lab1/services/MeasureService.java</file>
+            <file>file:/home/bradock/Documents/heig/amt/lab1/lab1-war/src/java/ch/heigvd/amt/lab1/services/MeasuresManager.java</file>
+            <file>file:/home/bradock/Documents/heig/amt/lab1/lab1-war/src/java/ch/heigvd/amt/lab1/services/DataManager.java</file>
+            <file>file:/home/bradock/Documents/heig/amt/lab1/lab1-war/web/index.html</file>
+            <file>file:/home/bradock/Documents/heig/amt/lab1/lab1-war/src/java/ch/heigvd/amt/lab1/controllers/FrontControllerServlet.java</file>
+        </group>
+    </open-files>
+</project-private>
