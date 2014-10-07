@@ -5,7 +5,8 @@ AMT_LAB1
 ##Cours 1
 fait
 ##Cours 2
-fait
+fait  
 config jmeter => lab2_test.jmx
 ##Cours 3
-uniqument le script
+script fait  
+DAO fait mais erreur avec @Resource(lookup="jdbc/AMTDatabase");
