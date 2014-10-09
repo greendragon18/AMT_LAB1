@@ -1,24 +1,35 @@
-<%-- 
-    Document   : sensors
-    Created on : Oct 9, 2014, 3:04:07 PM
-    Author     : bradock
---%>
-
-<<<<<<< HEAD
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <h1>Hello World!</h1>
-    </body>
-</html>
-=======
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UFT-8">
+    <title>Sensors</title>
+  </head>
+  <body>
+
+    <form name="form_sensors" action="update" method="POST">
+
+      <table>
+      <tr>
+        <th></th>
+        <th>ID</th>
+        <th>Description</th>
+        <th>Type</th>
+        <th></th>
+      </tr>
+      <c:forEach items="${sensors}" var="sensor">
+        <tr>
+          <td><input type="radio" name="id_sensor" value="${sensor.id}" /></td>
+          <td><c:out value="${sensor.id}"/></td>
+          <td><c:out value="${sensor.description}"/></td>
+          <td><c:out value="${sensor.type}"/></td>
+          <td><a href="delete?id=${sensor.id}">Supprimer</a></td>
+        </tr>
+      </c:forEach>
+      </table>
+
+    </form>
+
     <a href="new">New sensor</a>
 
   </body>
 </html>
->>>>>>> 673e06893c673d6a41e406f6bcb6416094a555a7
