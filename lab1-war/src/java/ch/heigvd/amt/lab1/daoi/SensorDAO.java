@@ -6,6 +6,7 @@
 package ch.heigvd.amt.lab1.daoi;
 
 import ch.heigvd.amt.lab1.pojo.Sensor;
+import java.util.LinkedList;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -24,7 +25,7 @@ public interface SensorDAO {
 
     public Sensor findById(int id);
 
-    public List<Sensor> findAll();
+    public LinkedList<Sensor> findAll();
 
     public List<Sensor> findByDescription(String description);
 

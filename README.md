@@ -10,3 +10,5 @@ config jmeter => lab2_test.jmx
 ##Cours 3
 script fait  
 DAO fait mais erreur avec @Resource(lookup="jdbc/AMTDatabase");
+
+
