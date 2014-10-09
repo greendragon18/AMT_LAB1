@@ -55,7 +55,7 @@ public class SensorJdbcDAO implements SensorDAO {
                 // Recuperation de l'id
                 ResultSet result = insert.getGeneratedKeys();
                 result.next();
-                sensor.setId(result.getInt(1));
+                sensor.setId(result.getLong(1));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -68,7 +68,7 @@ public class SensorJdbcDAO implements SensorDAO {
             PreparedStatement update = connect.prepareStatement("UPDATE sensors SET description = ?, type = ?  WHERE idCaserne = ?");
             update.setString(1, sensor.getDescription());
             update.setString(2, sensor.getType());
-            update.setInt(3, sensor.getId());
+            update.setLong(3, sensor.getId());
             update.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -86,7 +86,7 @@ public class SensorJdbcDAO implements SensorDAO {
     }
     
     @Override
-    public Sensor findById(int id){
+    public Sensor findById(Long id){
         Sensor sensor = new Sensor();
         try {
             //Connection connect = ds.getConnection();
@@ -102,13 +102,13 @@ public class SensorJdbcDAO implements SensorDAO {
     }
     
     @Override
-    public LinkedList<Sensor> findAll(){
+    public List<Sensor> findAll(){
          LinkedList<Sensor> sensors = new LinkedList<>();
         try {
             //Connection connect = ds.getConnection();
             ResultSet result = connect.createStatement().executeQuery("SELECT * FROM sensors");
             while (result.next()) {
-                Sensor sensor = new Sensor(result.getInt("id"), result.getString("description"), result.getString("type"));
+                Sensor sensor = new Sensor(result.getLong("id"), result.getString("description"), result.getString("type"));
                 sensors.add(sensor);
             }
         } catch (SQLException e) {
@@ -124,7 +124,7 @@ public class SensorJdbcDAO implements SensorDAO {
             //Connection connect = ds.getConnection();
             ResultSet result = connect.createStatement().executeQuery("SELECT * FROM sensors WHERE type LIKE '"+description+"'");
             while (result.next()) {
-                Sensor sensor = new Sensor(result.getInt("id"), result.getString("description"), result.getString("type"));
+                Sensor sensor = new Sensor(result.getLong("id"), result.getString("description"), result.getString("type"));
                 sensors.add(sensor);
             }
         } catch (SQLException e) {
@@ -140,7 +140,7 @@ public class SensorJdbcDAO implements SensorDAO {
             //Connection connect = ds.getConnection();
             ResultSet result = connect.createStatement().executeQuery("SELECT * FROM sensors WHERE type LIKE '"+type+"'");
             while (result.next()) {
-                Sensor sensor = new Sensor(result.getInt("id"), result.getString("description"), result.getString("type"));
+                Sensor sensor = new Sensor(result.getLong("id"), result.getString("description"), result.getString("type"));
                 sensors.add(sensor);
             }
         } catch (SQLException e) {

@@ -24,7 +24,7 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "SensorFCServlet", urlPatterns = {"/SensorFCServlet"})
 public class SensorFCServlet extends HttpServlet {
 
-    @EJB
+    @EJB(beanName="SensorJpaDao" )
     SensorDAO sensorDAO;
     
     /**
@@ -40,20 +40,17 @@ public class SensorFCServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String action;
-        try{
-            action = (String) request.getParameter("action");
-        }catch(Exception e){
-            action = "index";
+        String action = (String) request.getParameter("action");
+        if(action == null){
+            action = "";
         }
+        
         PrintWriter pw = response.getWriter();
         Sensor s;
         switch(action){
-            case "index":
-                        request.setAttribute("sensors", sensorDAO.findAll());
-                        request.getRequestDispatcher("WEB-INF/view/sensors.jsp").forward(request, response);
+            
             case "find" :
-                        s = sensorDAO.findById(Integer.parseInt((String)request.getParameter("id")));
+                        s = sensorDAO.findById(Long.parseLong((String)request.getParameter("id")));
                         pw.write("id : "+s.getId()+" description : "+s.getDescription()+" type : "+s.getType());
                         break;
             case "add" :
@@ -67,19 +64,23 @@ public class SensorFCServlet extends HttpServlet {
                         break;
             case "delete" :
                         s = new Sensor();
-                        s.setId(Integer.parseInt((String)request.getParameter("id")));
+                        s.setId(Long.parseLong((String)request.getParameter("id")));
                         
                         sensorDAO.delete(s);
                         pw.write("sensor with id : "+s.getId()+" has been deleted"); 
                         break;
             case "update" :
                         s = new Sensor();
-                        s.setId(Integer.parseInt((String)request.getParameter("id")));
+                        s.setId(Long.parseLong((String)request.getParameter("id")));
                         s.setDescription((String)request.getParameter("description"));
                         s.setType((String)request.getParameter("type"));
                         
                         sensorDAO.create(s);
                         pw.write("id : "+s.getId()+" description : "+s.getDescription()+" type : "+s.getType()); 
+                        break;
+            default :
+                        request.setAttribute("sensors", sensorDAO.findAll());
+                        request.getRequestDispatcher("WEB-INF/view/sensors.jsp").forward(request, response);
                         break;
                 
         }

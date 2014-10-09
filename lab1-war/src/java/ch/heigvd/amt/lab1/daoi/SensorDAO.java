@@ -23,9 +23,9 @@ public interface SensorDAO {
 
     public void delete(Sensor sensor);
 
-    public Sensor findById(int id);
+    public Sensor findById(Long id);
 
-    public LinkedList<Sensor> findAll();
+    public List<Sensor> findAll();
 
     public List<Sensor> findByDescription(String description);
 
