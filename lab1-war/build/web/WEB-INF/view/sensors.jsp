@@ -4,6 +4,7 @@
     Author     : bradock
 --%>
 
+<<<<<<< HEAD
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -15,3 +16,9 @@
         <h1>Hello World!</h1>
     </body>
 </html>
+=======
+    <a href="new">New sensor</a>
+
+  </body>
+</html>
+>>>>>>> 673e06893c673d6a41e406f6bcb6416094a555a7
