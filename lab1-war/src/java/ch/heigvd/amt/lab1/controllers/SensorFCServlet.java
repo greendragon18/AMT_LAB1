@@ -9,6 +9,7 @@ import ch.heigvd.amt.lab1.daoi.SensorDAO;
 import ch.heigvd.amt.lab1.pojo.Sensor;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.LinkedList;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -39,10 +40,18 @@ public class SensorFCServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         
-        String action = (String) request.getParameter("action");
+        String action;
+        try{
+            action = (String) request.getParameter("action");
+        }catch(Exception e){
+            action = "index";
+        }
         PrintWriter pw = response.getWriter();
         Sensor s;
         switch(action){
+            case "index":
+                        request.setAttribute("sensors", sensorDAO.findAll());
+                        request.getRequestDispatcher("WEB-INF/view/sensors.jsp").forward(request, response);
             case "find" :
                         s = sensorDAO.findById(Integer.parseInt((String)request.getParameter("id")));
                         pw.write("id : "+s.getId()+" description : "+s.getDescription()+" type : "+s.getType());
